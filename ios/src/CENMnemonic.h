@@ -10,12 +10,12 @@
 
 @interface CENMnemonic : NSObject
 
-+ (NSData *)generateMnemonic;
++ (NSString *)generateMnemonic;
 
-+ (NSData *)mnemonicFromSeed:(NSData *)seed;
++ (NSString *)mnemonicFromSeed:(NSData *)seed;
 
-+ (NSData *)seedFromMnemonic:(NSData *)mnemonic;
++ (NSData *)seedFromMnemonic:(NSString *)mnemonic;
 
-+ (BOOL)validateMnemonic:(NSData *)mnemonic;
++ (BOOL)validateMnemonic:(NSString *)mnemonic;
 
 @end
