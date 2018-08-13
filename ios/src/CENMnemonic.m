@@ -25,7 +25,7 @@
 
 + (BOOL)validateMnemonic:(NSData *)mnemonic {
     NSString *phrase = [CENMnemonic dataToString:mnemonic];
-    return (mnemonic_check([phrase cStringUsingEncoding:NSUTF8StringEncoding]);
+    return (mnemonic_check([phrase cStringUsingEncoding:NSUTF8StringEncoding]));
 }
 
 + (NSString *)dataToString:(NSData *)data {
