@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C684A4C21224144007688EE /* NSData+Buffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C684A4A21224144007688EE /* NSData+Buffer.m */; };
 		A3511FA3212144630010920E /* bip39.c in Sources */ = {isa = PBXBuildFile; fileRef = A3511F23212144630010920E /* bip39.c */; };
 		A3511FA4212144630010920E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = A3511F26212144630010920E /* hmac.c */; };
 		A3511FA5212144630010920E /* sha2.c in Sources */ = {isa = PBXBuildFile; fileRef = A3511F28212144630010920E /* sha2.c */; };
@@ -77,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNHDWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNHDWallet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C684A4A21224144007688EE /* NSData+Buffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Buffer.m"; sourceTree = "<group>"; };
+		4C684A4B21224144007688EE /* NSData+Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Buffer.h"; sourceTree = "<group>"; };
 		A3511F23212144630010920E /* bip39.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bip39.c; sourceTree = "<group>"; };
 		A3511F24212144630010920E /* nist256p1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nist256p1.h; sourceTree = "<group>"; };
 		A3511F25212144630010920E /* groestl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groestl.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 			children = (
 				A3511F22212144630010920E /* trezor-crypto */,
 				A3511FDC212148150010920E /* CENMnemonic.h */,
+				4C684A4B21224144007688EE /* NSData+Buffer.h */,
+				4C684A4A21224144007688EE /* NSData+Buffer.m */,
 				A3511FDD212148150010920E /* CENMnemonic.m */,
 				A3511FDF212148440010920E /* CENHDWallet.h */,
 				A3511FE0212148440010920E /* CENHDWallet.m */,
@@ -477,6 +482,7 @@
 				A3511FAC212144630010920E /* rc4.c in Sources */,
 				A3511FAB212144630010920E /* rand.c in Sources */,
 				A3511FB3212144630010920E /* ed25519-donna-32bit-tables.c in Sources */,
+				4C684A4C21224144007688EE /* NSData+Buffer.m in Sources */,
 				A3511FC3212144630010920E /* memzero.c in Sources */,
 				A3511FBF212144630010920E /* segwit_addr.c in Sources */,
 				A3511FAA212144630010920E /* xpubaddrgen.c in Sources */,
