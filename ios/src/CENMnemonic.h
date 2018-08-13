@@ -16,6 +16,6 @@
 
 + (NSData *)seedFromMnemonic:(NSData *)mnemonic;
 
-+ (BOOL)validateMnemonic;
++ (BOOL)validateMnemonic:(NSData *)mnemonic;
 
 @end

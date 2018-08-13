@@ -7,6 +7,7 @@
 //
 
 #import "CENMnemonic.h"
+#include "bip39.h"
 
 @implementation CENMnemonic
 
@@ -22,8 +23,14 @@
     return nil;
 }
 
-+ (BOOL)validateMnemonic {
-    return false;
++ (BOOL)validateMnemonic:(NSData *)mnemonic {
+    NSString *phrase = [CENMnemonic dataToString:mnemonic];
+    return (mnemonic_check([phrase cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
++ (NSString *)dataToString:(NSData *)data {
+    NSParameterAssert(data);
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 @end
