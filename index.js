@@ -32,7 +32,7 @@ const checkMnemonic = (mnemonic) => {
  */
 export const generateMnemonic = (entropyLength = 128) => {
   const bytesLen = entropyLength / 8;
-  if (bytesLen % 4 || bytesLen < 16 || bytesLen > 32) {
+  if (!bytesLen || bytesLen % 4 || bytesLen < 16 || bytesLen > 32) {
     throw new Error(`entropy length ${entropyLength} is invalid`);
   }
   
@@ -55,8 +55,8 @@ export const seedToMnemonic = (seed) => {
     throw new TypeError('unexpected type, use Buffer or Uint8Array');
   }
 
-  const seedLen = seedBuffer.size;
-  if (seedLen % 4 || seedLen < 128 || seedLen > 256) {
+  const seedLen = seedBuffer.length;
+  if (!seedLen || seedLen % 4 || seedLen < 128 || seedLen > 256) {
     throw new Error(`seed length ${seedLen} is invalid`);
   }
 
