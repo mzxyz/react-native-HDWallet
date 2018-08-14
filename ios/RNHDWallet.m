@@ -19,21 +19,6 @@ RCT_EXPORT_METHOD(generateMnemonic:(RCTPromiseResolveBlock)resolve reject:(RCTPr
     }
 }
 
-RCT_EXPORT_METHOD(mnemonicFromSeed:(NSArray<NSNumber *> *)seed
-                           resolve:(RCTPromiseResolveBlock)resolve
-                            reject:(RCTPromiseRejectBlock)reject) {
-    @try
-    {
-        NSData *seedData = [NSData dataWithBuffer:seed];
-        NSString *mnemonicPhrase = [CENMnemonic mnemonicFromSeed:seedData];
-        resolve(mnemonicPhrase);
-    }
-    @catch (NSException *ex)
-    {
-        [RNHDWallet reject:reject exception:ex];
-    }
-}
-
 RCT_EXPORT_METHOD(seedFromMnemonic:(NSString *)mnemonic
                            resolve:(RCTPromiseResolveBlock)resolve
                             reject:(RCTPromiseRejectBlock)reject) {
