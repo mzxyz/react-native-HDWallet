@@ -10,13 +10,13 @@
 #import <CommonCrypto/CommonCrypto.h>
 #include "bip39.h"
 
-#define MNEMONIC_PHRASE_LENGTH    16
+#define MNEMONIC_ENTROPY_LENGTH   128
 #define SEED_LENGTH               32
 
 @implementation CENMnemonic
 
 + (NSString *)generateMnemonic {
-    NSMutableData *data = [NSMutableData dataWithLength:MNEMONIC_PHRASE_LENGTH];
+    NSMutableData *data = [NSMutableData dataWithLength:(MNEMONIC_ENTROPY_LENGTH / 8)];
     if (SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes) != noErr) {
         return nil;
     }
