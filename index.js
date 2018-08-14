@@ -45,7 +45,7 @@ export const generateMnemonic = (entropyLength = 128) => {
  * @param {Buffer|Uint8Array} seed
  * @return {PromiseLike<Object>}
  */
-export const mnemonicFromSeed = (seed) => {
+export const seedToMnemonic = (seed) => {
   let seedBuffer = seed;
   if (buffer instanceof Uint8Array) {
     seedBuffer = Buffer.from(seed.buffer);
@@ -69,11 +69,21 @@ export const mnemonicFromSeed = (seed) => {
  * @param {String} mnemonic
  * @return {PromiseLike<Object>}
  */
-export const seedFromMnemonic = (mnemonic) => {
+export const mnemonicToSeed = (mnemonic) => {
   const error = checkMnemonic(mnemonic);
   if (error) { throw error; }
 
   return RNHDWallet.seedFromMnemonic(mnemonic);
+};
+
+/**
+ * Get seed hex from mnemonic phrase.
+ * 
+ * @param {String} mnemonic
+ * @return {PromiseLike<Object>}
+ */
+export const mnemonicToSeedHex = (mnemonic) => {
+  return mnemonicToSeed(mnemonic).then(seed => Buffer.from(seed).toString('hex'));
 };
 
 /**
