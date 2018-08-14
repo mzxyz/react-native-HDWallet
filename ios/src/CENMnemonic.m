@@ -15,9 +15,11 @@
 
 @implementation CENMnemonic
 
-+ (NSString *)generateMnemonic {
-    NSMutableData *data = [NSMutableData dataWithLength:(MNEMONIC_ENTROPY_LENGTH / 8)];
-    if (SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes) != noErr) {
++ (NSString *)generateMnemonic:(NSUInteger)entropyLength {
+    // generate random data With entropy length
+    const NSUInteger entropyBytesLength = entropyLength / 8;
+    NSMutableData *entropy = [NSMutableData dataWithLength:(entropyBytesLength)];
+    if (SecRandomCopyBytes(kSecRandomDefault, entropy.length, entropy.mutableBytes) != noErr) {
         return nil;
     }
 

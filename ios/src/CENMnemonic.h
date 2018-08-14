@@ -10,7 +10,7 @@
 
 @interface CENMnemonic : NSObject
 
-+ (NSString *)generateMnemonic;
++ (NSString *)generateMnemonic:(NSUInteger)entropyLength;
 
 + (NSString *)mnemonicFromSeed:(NSData *)seed;
 

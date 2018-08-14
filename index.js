@@ -5,12 +5,18 @@ import { Buffer } from 'buffer';
 const { RNHDWallet } = NativeModules;
 
 /**
- * Generates 12 mnemonic words.
- *
+ * Generates mnemonic phrase. (12 words by default)
+ * 
+ * @param {Number} entropyLength 128 bits entropy by default
  * @return {PromiseLike<Object>}
  */
-export const generateMnemonic = () => {
-  return RNHDWallet.generateMnemonic();
+export const generateMnemonic = (entropyLength = 128) => {
+  const bytesLen = entropyLength / 8;
+  if (bytesLen % 4 || bytesLen < 16 || bytesLen > 32) {
+    throw new TypeError(`entropy length ${entropyLength} is invalid`);
+  }
+  
+  return RNHDWallet.generateMnemonic(entropyLength);
 };
 
 /**

@@ -7,10 +7,12 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(generateMnemonic:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
+RCT_EXPORT_METHOD(generateMnemonic:(NSUInteger)entropyLength
+                           resolve:(RCTPromiseResolveBlock)resolve
+                            reject:(RCTPromiseRejectBlock)reject) {
     @try
     {
-        NSString *mnemonicPhrase = [CENMnemonic generateMnemonic];
+        NSString *mnemonicPhrase = [CENMnemonic generateMnemonic:entropyLength];
         resolve(mnemonicPhrase);
     }
     @catch (NSException *ex)
