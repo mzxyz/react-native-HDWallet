@@ -47,7 +47,7 @@ export const generateMnemonic = (entropyLength = 128) => {
  */
 export const seedToMnemonic = (seed) => {
   let seedBuffer = seed;
-  if (buffer instanceof Uint8Array) {
+  if (seedBuffer instanceof Uint8Array) {
     seedBuffer = Buffer.from(seed.buffer);
   }
   
