@@ -49,9 +49,9 @@
                                      userInfo:nil];
     }
     
-    NSUInteger phraseLen = [[mnemonic componentsSeparatedByString:@" "] count];
     // use pbkdf2_hmac_sha512 to get seed, seed length 512-bits (64 bytes)
-    NSMutableData *seed = [NSMutableData dataWithLength:PBKDF2_HMAC_SHA512_SEED_LEN];
+    const seedBytesLen = (PBKDF2_HMAC_SHA512_SEED_LEN / 8);
+    NSMutableData *seed = [NSMutableData dataWithLength:seedBytesLen];
     mnemonic_to_seed(phrase, "", seed.mutableBytes, NULL);
     
     return [seed copy];

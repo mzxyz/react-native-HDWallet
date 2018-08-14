@@ -64,7 +64,7 @@ export const seedToMnemonic = (seed) => {
 };
 
 /**
- * Get seed from mnemonic phrase.
+ * Get 512-bits seed from mnemonic phrase.
  * 
  * @param {String} mnemonic
  * @return {PromiseLike<Object>}
@@ -77,7 +77,7 @@ export const mnemonicToSeed = (mnemonic) => {
 };
 
 /**
- * Get seed hex from mnemonic phrase.
+ * Get 64-bytes seed hex from mnemonic phrase.
  * 
  * @param {String} mnemonic
  * @return {PromiseLike<Object>}
