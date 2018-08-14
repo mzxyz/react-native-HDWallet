@@ -10,9 +10,6 @@
 #import <CommonCrypto/CommonCrypto.h>
 #include "bip39.h"
 
-#define MNEMONIC_ENTROPY_LENGTH   128
-#define SEED_LENGTH               32
-
 @implementation CENMnemonic
 
 + (NSString *)generateMnemonic:(NSUInteger)entropyLength {
@@ -23,13 +20,19 @@
         return nil;
     }
 
-    const char *mnemonicStr = mnemonic_from_data(data.bytes, (int)data.length);
+    const char *mnemonicStr = mnemonic_from_data(entropy.bytes, (int)entropy.length);
     NSString *mnemonicPhrase = [NSString stringWithCString:mnemonicStr encoding:NSUTF8StringEncoding];
 
     return mnemonicPhrase;
 }
 
 + (NSString *)mnemonicFromSeed:(NSData *)seed {
+    if (!seed) {
+        @throw [NSException exceptionWithName:@"seed error"
+                                       reason:@"seed can not be nil"
+                                     userInfo:nil];
+    }
+
     const char *mnemonicStr = mnemonic_from_data(seed.bytes, (int)seed.length);
     NSString *mnemonicPhrase = [NSString stringWithCString:mnemonicStr encoding:NSUTF8StringEncoding];
     
@@ -44,7 +47,9 @@
                                      userInfo:nil];
     }
     
-    NSMutableData *seed = [NSMutableData dataWithLength:SEED_LENGTH];
+    NSUInteger phraseLen = [[mnemonic componentsSeparatedByString:@" "] count];
+    NSUInteger seedLen = (phraseLen * 4) / 3;
+    NSMutableData *seed = [NSMutableData dataWithLength:seedLen];
     mnemonic_to_seed(phrase, "", seed.mutableBytes, NULL);
     
     return [seed copy];
