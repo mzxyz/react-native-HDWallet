@@ -12,7 +12,7 @@ const { RNHDWallet } = NativeModules;
  */
 const checkMnemonic = (mnemonic) => {
   let error = null;
-  if (mnemonic !== 'string') {
+  if (typeof mnemonic !== 'string') {
     error = TypeError('mnemonic phrase should be string type');
   }
 
