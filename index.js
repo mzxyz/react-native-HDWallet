@@ -5,6 +5,26 @@ import { Buffer } from 'buffer';
 const { RNHDWallet } = NativeModules;
 
 /**
+ * Precheck whether mnemonic phrase type and format is valid
+ * 
+ * @param {String} mnemonic
+ * @return {Error}
+ */
+const checkMnemonic = (mnemonic) => {
+  let error = null;
+  if (mnemonic !== 'string') {
+    error = TypeError('mnemonic phrase should be string type');
+  }
+
+  const trimedPhrase = mnemonic.trim();
+  if (trimedPhrase.split(/\s+/g).length < 12) {
+    error = Error(`mnemonic phrase should contain more than 12 words`);
+  }
+
+  return error;
+}
+
+/**
  * Generates mnemonic phrase. (12 words by default)
  * 
  * @param {Number} entropyLength 128 bits entropy by default
@@ -13,37 +33,46 @@ const { RNHDWallet } = NativeModules;
 export const generateMnemonic = (entropyLength = 128) => {
   const bytesLen = entropyLength / 8;
   if (bytesLen % 4 || bytesLen < 16 || bytesLen > 32) {
-    throw new TypeError(`entropy length ${entropyLength} is invalid`);
+    throw new Error(`entropy length ${entropyLength} is invalid`);
   }
   
   return RNHDWallet.generateMnemonic(entropyLength);
 };
 
 /**
- * Generates 12 mnemonic words from 32 bits seed.
+ * Generates mnemonic phrase from seed.
  * 
- * @param {Buffer} seed
+ * @param {Buffer|Uint8Array} seed
  * @return {PromiseLike<Object>}
  */
 export const mnemonicFromSeed = (seed) => {
-  if (Buffer.isBuffer(seed)) {
-    return RNHDWallet.mnemonicFromSeed(seed);
-  }
-
+  let seedBuffer = seed;
   if (buffer instanceof Uint8Array) {
-    return RNHDWallet.mnemonicFromSeed(Buffer.from(seed.buffer));
+    seedBuffer = Buffer.from(seed.buffer);
+  }
+  
+  if (!Buffer.isBuffer(seedBuffer)) {
+    throw new TypeError('unexpected type, use Buffer or Uint8Array');
   }
 
-  throw new TypeError('unexpected type, use Buffer or Uint8Array');
+  const seedLen = seedBuffer.size;
+  if (seedLen % 4 || seedLen < 128 || seedLen > 256) {
+    throw new Error(`seed length ${seedLen} is invalid`);
+  }
+
+  return RNHDWallet.mnemonicFromSeed(seedBuffer);
 };
 
 /**
- * Get 32 bits seed from 12 mnemonic words.
+ * Get seed from mnemonic phrase.
  * 
  * @param {String} mnemonic
  * @return {PromiseLike<Object>}
  */
 export const seedFromMnemonic = (mnemonic) => {
+  const error = checkMnemonic(mnemonic);
+  if (error) { throw error; }
+
   return RNHDWallet.seedFromMnemonic(mnemonic);
 };
 
@@ -54,5 +83,9 @@ export const seedFromMnemonic = (mnemonic) => {
  * @return {PromiseLike<Object>}
  */
 export const validateMnemonic = mnemonic => {
+  if (checkMnemonic(mnemonic)) {
+    return new Promise.resolve(false);
+  }
+
   return RNHDWallet.validateMnemonic(mnemonic);
 };
