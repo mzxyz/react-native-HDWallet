@@ -10,7 +10,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 #include "bip39.h"
 
-#define PBKDF2_HMAC_SHA512_SEED_LEN 512;
+#define PBKDF2_HMAC_SHA512_SEED_LEN   512
 
 @implementation CENMnemonic
 
@@ -50,7 +50,7 @@
     }
     
     // use pbkdf2_hmac_sha512 to get seed, seed length 512-bits (64 bytes)
-    const seedBytesLen = (PBKDF2_HMAC_SHA512_SEED_LEN / 8);
+    NSUInteger seedBytesLen = (PBKDF2_HMAC_SHA512_SEED_LEN / 8);
     NSMutableData *seed = [NSMutableData dataWithLength:seedBytesLen];
     mnemonic_to_seed(phrase, "", seed.mutableBytes, NULL);
     
