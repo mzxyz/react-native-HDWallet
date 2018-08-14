@@ -71,11 +71,6 @@ HDWallet.mnemonicToSeedHex(phrase)
 	.catch(error => ...);
 // => seedHex: '70a478ab04515cfb3f42751d76ad91f480a05be6a2afd647fa440140fc5d996facd346e1c1e796ee30580ff122a9b9083b8fc7d38a622b759a0bffd9a8eebe19'
 
-HDWallet.seedToMnemonic(seed)
-	.then(phrase => ...)
-	.catch(error => ...);
-// => phrase: 'spatial bracket mutual sense salt disagree plastic novel figure flight grunt spring'
-
 HDWallet.validateMnemonic(mnemonic)
 	.then(valid => ...)
 	.catch(error => ...);

@@ -28,19 +28,6 @@
     return mnemonicPhrase;
 }
 
-+ (NSString *)mnemonicFromSeed:(NSData *)seed {
-    if (!seed) {
-        @throw [NSException exceptionWithName:@"seed error"
-                                       reason:@"seed can not be nil"
-                                     userInfo:nil];
-    }
-
-    const char *mnemonicStr = mnemonic_from_data(seed.bytes, (int)seed.length);
-    NSString *mnemonicPhrase = [NSString stringWithCString:mnemonicStr encoding:NSUTF8StringEncoding];
-    
-    return mnemonicPhrase;
-}
-
 + (NSData *)seedFromMnemonic:(NSString *)mnemonic {
     const char *phrase = [mnemonic cStringUsingEncoding:NSUTF8StringEncoding];
     if (![CENMnemonic validateMnemonic:mnemonic]) {

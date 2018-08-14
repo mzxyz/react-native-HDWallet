@@ -40,30 +40,6 @@ export const generateMnemonic = (entropyLength = 128) => {
 };
 
 /**
- * Generates mnemonic phrase from seed.
- * 
- * @param {Buffer|Uint8Array} seed
- * @return {PromiseLike<Object>}
- */
-export const seedToMnemonic = (seed) => {
-  let seedBuffer = seed;
-  if (seedBuffer instanceof Uint8Array) {
-    seedBuffer = Buffer.from(seed.buffer);
-  }
-  
-  if (!Buffer.isBuffer(seedBuffer)) {
-    throw new TypeError('unexpected type, use Buffer or Uint8Array');
-  }
-
-  const seedLen = seedBuffer.length;
-  if (!seedLen || seedLen % 4 || seedLen < 128 || seedLen > 256) {
-    throw new Error(`seed length ${seedLen} is invalid`);
-  }
-
-  return RNHDWallet.mnemonicFromSeed(seedBuffer);
-};
-
-/**
  * Get 512-bits seed from mnemonic phrase.
  * 
  * @param {String} mnemonic

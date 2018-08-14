@@ -12,8 +12,6 @@
 
 + (NSString *)generateMnemonic:(NSUInteger)entropyLength;
 
-+ (NSString *)mnemonicFromSeed:(NSData *)seed;
-
 + (NSData *)seedFromMnemonic:(NSString *)mnemonic;
 
 + (BOOL)validateMnemonic:(NSString *)mnemonic;
