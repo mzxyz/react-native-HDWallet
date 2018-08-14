@@ -64,7 +64,7 @@ const invalidPhrase = 'history potato major amount fluid then cup vocal fix unus
 HDWallet.mnemonicToSeed(phrase)
 	.then(seed => ...)
 	.catch(error => ...);
-// => seed buffer: ''
+// => seed buffer: '112, 164, 120, 171, 4, 81, 92, ... , 128, 160, 91, 230, 162, 1, 255, 217, 168, 238, 190, 25'
 
 HDWallet.mnemonicToSeedHex(phrase)
 	.then(seedHex => ...)
