@@ -9,6 +9,15 @@
 
 `$ react-native link centrality-mobile-hdwallet`
 
+## TODO List
+
+1. ~~Support Bip39 on iOS. ~~ [`Finished`]
+2. ~~Bip39 test iOS. ~~ [`Finished`]
+3. Support Bip39 on android.
+4. Support Bip32/Bip44 on iOS.
+5. Support Bip32/Bip44 on android.
+
+
 ### Manual installation
 
 
