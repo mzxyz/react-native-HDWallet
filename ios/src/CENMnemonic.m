@@ -10,27 +10,21 @@
 #import <CommonCrypto/CommonCrypto.h>
 #include "bip39.h"
 
-#define MNEMONIC_PHRASE_LENGTH    16
-#define SEED_LENGTH               32
+#define PBKDF2_HMAC_SHA512_SEED_LEN   512
 
 @implementation CENMnemonic
 
-+ (NSString *)generateMnemonic {
-    NSMutableData *data = [NSMutableData dataWithLength:MNEMONIC_PHRASE_LENGTH];
-    if (SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes) != noErr) {
++ (NSString *)generateMnemonic:(NSUInteger)entropyLength {
+    // generate random data With entropy length
+    const NSUInteger entropyBytesLength = entropyLength / 8;
+    NSMutableData *entropy = [NSMutableData dataWithLength:(entropyBytesLength)];
+    if (SecRandomCopyBytes(kSecRandomDefault, entropy.length, entropy.mutableBytes) != noErr) {
         return nil;
     }
 
-    const char *mnemonicStr = mnemonic_from_data(data.bytes, (int)data.length);
+    const char *mnemonicStr = mnemonic_from_data(entropy.bytes, (int)entropy.length);
     NSString *mnemonicPhrase = [NSString stringWithCString:mnemonicStr encoding:NSUTF8StringEncoding];
 
-    return mnemonicPhrase;
-}
-
-+ (NSString *)mnemonicFromSeed:(NSData *)seed {
-    const char *mnemonicStr = mnemonic_from_data(seed.bytes, (int)seed.length);
-    NSString *mnemonicPhrase = [NSString stringWithCString:mnemonicStr encoding:NSUTF8StringEncoding];
-    
     return mnemonicPhrase;
 }
 
@@ -42,7 +36,9 @@
                                      userInfo:nil];
     }
     
-    NSMutableData *seed = [NSMutableData dataWithLength:SEED_LENGTH];
+    // use pbkdf2_hmac_sha512 to get seed, seed length 512-bits (64 bytes)
+    NSUInteger seedBytesLen = (PBKDF2_HMAC_SHA512_SEED_LEN / 8);
+    NSMutableData *seed = [NSMutableData dataWithLength:seedBytesLen];
     mnemonic_to_seed(phrase, "", seed.mutableBytes, NULL);
     
     return [seed copy];

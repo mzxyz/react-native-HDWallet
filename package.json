@@ -1,6 +1,6 @@
 
 {
-  "name": "react-native-hd-wallet",
+  "name": "centrality-mobile-hdwallet",
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,9 @@
   "author": "",
   "license": "",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "*"
+  },
+  "dependencies": {
+    "buffer":"^5.2.0"
   }
 }
