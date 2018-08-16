@@ -49,7 +49,7 @@ export const mnemonicToSeed = (mnemonic) => {
   const error = checkMnemonic(mnemonic);
   if (error) { throw error; }
 
-  return RNHDWallet.seedFromMnemonic(mnemonic);
+  return RNHDWallet.seedFromMnemonic(mnemonic).then(seed => Buffer.from(seed));
 };
 
 /**
