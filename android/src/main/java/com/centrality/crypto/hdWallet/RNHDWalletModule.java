@@ -1,7 +1,7 @@
 
 package com.centrality.crypto.hdWallet;
 
-import com.centrality.cryptp.bip39.Bip39;
+import com.centrality.crypto.bip39.Bip39;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -49,7 +49,7 @@ public class RNHDWalletModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void validateMnemonic(String mnemonic,, Promise promise) {
+  public void validateMnemonic(String mnemonic, Promise promise) {
     try {
       String[] wordList = mnemonic.split(" ");
       boolean wordListValid = Bip39.isValidWordList(wordList);
