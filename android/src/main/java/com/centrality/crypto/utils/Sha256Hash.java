@@ -18,7 +18,7 @@ package com.centrality.crypto.utils;
 
 import com.centrality.crypto.utils.BitUtils;
 import com.centrality.crypto.utils.HexUtils;
-import android.support.test.espresso.intent.Checks
+import android.support.test.espresso.intent.Checks;
 
 import java.io.Serializable;
 import java.math.BigInteger;

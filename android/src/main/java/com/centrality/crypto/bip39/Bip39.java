@@ -1,6 +1,5 @@
 package com.centrality.crypto.bip39;
 
-import com.google.common.base.Optional;
 import com.centrality.crypto.bip39.WordList;
 import com.centrality.crypto.bip39.PBKDF;
 import com.centrality.crypto.utils.ByteReader;
@@ -13,6 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.text.Normalizer;
+import java.util.Optional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -86,54 +86,6 @@ public class Bip39 {
             putByteArray(_bip32MasterSeed, writer);
          }
          return writer.toBytes();
-      }
-
-      /**
-       * Creates a MasterSeed from binary form
-       *
-       * @param bytes      the binary form
-       * @param compressed is the binary form a compressed or uncompressed representation
-       * @return A master seed
-       */
-      public static Optional<MasterSeed> fromBytes(byte[] bytes, boolean compressed) {
-         ByteReader reader = new ByteReader(bytes);
-         try {
-            // Get the type of word list used. So far only english is supported
-            byte wordListType = reader.get();
-            if (wordListType != ENGLISH_WORD_LIST_TYPE) {
-               return Optional.absent();
-            }
-            byte[] bip39RawEntropy = getByteArray(reader);
-            if (bip39RawEntropy.length != 128 / 8 &&
-                  bip39RawEntropy.length != 160 / 8 &&
-                  bip39RawEntropy.length != 192 / 8 &&
-                  bip39RawEntropy.length != 224 / 8 &&
-                  bip39RawEntropy.length != 256 / 8) {
-               return Optional.absent();
-            }
-            String bip39Passphrase;
-            try {
-               byte[] bip39PassphraseBytes = getByteArray(reader);
-               bip39Passphrase = new String(bip39PassphraseBytes, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-               // Never happens
-               throw new RuntimeException(e);
-            }
-
-            if (compressed) {
-               // We are using compressed form, so we have to calculate the actual master seed
-               wordList = Arrays.asList(rawEntropyToWords(bip39RawEntropy));
-               return Optional.of(generateSeedFromWordList(wordList, bip39Passphrase));
-            } else {
-               byte[] bip32MasterSeed = getByteArray(reader);
-               if (bip32MasterSeed.length != BIP32_SEED_LENGTH) {
-                  return Optional.absent();
-               }
-               return Optional.of(new MasterSeed(bip39RawEntropy, bip39Passphrase, bip32MasterSeed));
-            }
-         } catch (ByteReader.InsufficientBytesException e) {
-            return Optional.absent();
-         }
       }
 
       private static byte[] getByteArray(ByteReader reader) throws ByteReader.InsufficientBytesException {
