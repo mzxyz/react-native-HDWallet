@@ -1,7 +1,7 @@
 
 {
   "name": "centrality-mobile-hdwallet",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
+  "author": "Michael Zhai",
+  "email": "michael.zhai@centrality.ai",
   "peerDependencies": {
     "react-native": "*"
   },

@@ -12,6 +12,7 @@ import com.facebook.react.bridge.Promise;
 
 import java.util.Arrays;
 import java.util.List;
+import android.text.TextUtils;
 
 public class RNHDWalletModule extends ReactContextBaseJavaModule {
 
@@ -30,8 +31,9 @@ public class RNHDWalletModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void generateMnemonic(int entropyLength, Promise promise) {
     try {
-      String[] wordList = Bip39.createRandomWords(entropyLength);
-      String mnemonicPhrase = String.join(" ", wordList);
+      String[] words = Bip39.createRandomWords(entropyLength);
+      List<String> wordList = Arrays.asList(words);
+      String mnemonicPhrase = TextUtils.join(" ", wordList);
 
       promise.resolve(mnemonicPhrase);
     } catch (Exception e) {

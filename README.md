@@ -12,10 +12,11 @@
 ## TODO List
 
 1. ~~Support Bip39 on iOS. ~~ [`Finished`]
-2. ~~Bip39 test iOS. ~~ [`Finished`]
-3. Support Bip39 on android.
-4. Support Bip32/Bip44 on iOS.
-5. Support Bip32/Bip44 on android.
+2. ~~Bip39 test on iOS. ~~ [`Finished`]
+3. ~~Support Bip39 on android. ~~ [`Finished`]
+4. ~~Bip39 test on android. ~~ [`Finished`]
+5. Support Bip32/Bip44 on iOS.
+6. Support Bip32/Bip44 on android.
 
 
 ### Manual installation
