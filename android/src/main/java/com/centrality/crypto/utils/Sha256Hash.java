@@ -17,6 +17,7 @@
 package com.centrality.crypto.utils;
 
 import com.centrality.crypto.utils.BitUtils;
+import com.centrality.crypto.utils.HexUtils;
 import com.google.common.base.Preconditions;
 import com.google.common.primitives.Ints;
 
