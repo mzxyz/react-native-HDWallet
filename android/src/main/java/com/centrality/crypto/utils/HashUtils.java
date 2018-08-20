@@ -17,6 +17,8 @@
 package com.centrality.crypto.utils;
 
 import com.centrality.crypto.digest.RIPEMD160Digest;
+import com.centrality.crypto.utils.Sha256Hash;
+import com.centrality.crypto.utils.Sha512Hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

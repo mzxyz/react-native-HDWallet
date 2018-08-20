@@ -17,6 +17,7 @@
 package com.centrality.crypto.utils;
 
 import com.centrality.crypto.utils.CompactInt;
+import com.centrality.crypto.utils.Sha256Hash;
 
 import java.io.UnsupportedEncodingException;
 

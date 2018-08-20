@@ -6,6 +6,7 @@ import com.centrality.crypto.bip39.PBKDF;
 import com.centrality.crypto.utils.ByteReader;
 import com.centrality.crypto.utils.ByteWriter;
 import com.centrality.crypto.utils.HashUtils;
+import com.centrality.crypto.utils.BitUtils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
