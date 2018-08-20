@@ -1,6 +1,6 @@
 package com.centrality.crypto.bip39;
 
-// import com.google.common.base.Optional;
+import com.google.common.base.Optional;
 import com.centrality.crypto.bip39.WordList;
 import com.centrality.crypto.bip39.PBKDF;
 import com.centrality.crypto.utils.ByteReader;
