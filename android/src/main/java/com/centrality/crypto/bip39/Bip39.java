@@ -302,7 +302,7 @@ public class Bip39 {
    /**
     * Create a random mnemonic phrase from a random source
     *
-    * @param randomSource the random source to use
+    * @param entropyLength the entropy length (128|..|256)
     * @return a mnemonic word list 
     */
    public static String[] createRandomWords(int entropyLength) {
@@ -319,10 +319,9 @@ public class Bip39 {
     * @param randomSource the random source to use
     * @return a random master seed
     */
-   public static MasterSeed createRandomMasterSeed(RandomSource randomSource) {
-      byte[] rawEntropy = new byte[128 / 8];
-      randomSource.nextBytes(rawEntropy);
-      String[] wordList = rawEntropyToWords(rawEntropy);
+   public static MasterSeed createRandomMasterSeed(int entropyLength) {
+      String[] words = createRandomWords(entropyLength);
+      List<String> wordList = Arrays.asList(words);
       return generateSeedFromWordList(wordList, "");
    }
 
