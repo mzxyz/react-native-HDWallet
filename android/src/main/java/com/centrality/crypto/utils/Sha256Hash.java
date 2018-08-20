@@ -18,11 +18,11 @@ package com.centrality.crypto.utils;
 
 import com.centrality.crypto.utils.BitUtils;
 import com.centrality.crypto.utils.HexUtils;
-import com.google.common.base.Preconditions;
-import com.google.common.primitives.Ints;
+import android.support.test.espresso.intent.Checks
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.lang.Integer;
 import java.util.Arrays;
 
 /**
@@ -39,7 +39,7 @@ public class Sha256Hash implements Serializable, Comparable<Sha256Hash> {
    private int _hash;
 
    public Sha256Hash(byte[] bytes) {
-      Preconditions.checkArgument(bytes.length == HASH_LENGTH);
+      Checks.checkArgument(bytes.length == HASH_LENGTH);
       this._bytes = bytes;
       _hash = -1;
    }
@@ -117,7 +117,7 @@ public class Sha256Hash implements Serializable, Comparable<Sha256Hash> {
          byte myByte = _bytes[i];
          byte otherByte = o._bytes[i];
 
-         final int compare = Ints.compare(myByte, otherByte);
+         final int compare = Integer.compare(myByte, otherByte);
          if (compare != 0)
             return compare;
       }
@@ -137,7 +137,7 @@ public class Sha256Hash implements Serializable, Comparable<Sha256Hash> {
    }
 
    public boolean startsWith(byte[] checksum) {
-      Preconditions.checkArgument(checksum.length < HASH_LENGTH); // typcially 4
+      Checks.checkArgument(checksum.length < HASH_LENGTH); // typcially 4
       for (int i = 0, checksumLength = checksum.length; i < checksumLength; i++) {
          if (_bytes[i] != checksum[i]) {
             return false;

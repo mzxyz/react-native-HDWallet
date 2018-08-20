@@ -122,7 +122,8 @@ public class Bip39 {
 
             if (compressed) {
                // We are using compressed form, so we have to calculate the actual master seed
-               return Optional.of(generateSeedFromWordList(rawEntropyToWords(bip39RawEntropy), bip39Passphrase));
+               wordList = Arrays.asList(rawEntropyToWords(bip39RawEntropy));
+               return Optional.of(generateSeedFromWordList(wordList, bip39Passphrase));
             } else {
                byte[] bip32MasterSeed = getByteArray(reader);
                if (bip32MasterSeed.length != BIP32_SEED_LENGTH) {

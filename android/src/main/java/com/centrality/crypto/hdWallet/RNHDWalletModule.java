@@ -3,6 +3,7 @@ package com.centrality.crypto.hdWallet;
 
 import com.centrality.crypto.bip39.Bip39;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableArray;
@@ -59,7 +60,6 @@ public class RNHDWalletModule extends ReactContextBaseJavaModule {
       promise.reject("validate mnemonic phrase failed", e);
     }
   }
-
 
   private WritableArray byteArrayToWritable(byte [] arr) {
     WritableArray arrWritable = Arguments.createArray();
