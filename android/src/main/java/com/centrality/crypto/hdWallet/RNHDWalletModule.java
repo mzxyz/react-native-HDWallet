@@ -10,6 +10,9 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class RNHDWalletModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
@@ -39,8 +42,8 @@ public class RNHDWalletModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void seedFromMnemonic(String mnemonic, Promise promise) {
     try {
-      String[] wordList = mnemonic.split(" ");
-      Bip39.MasterSeed masterSeed = Bip39.generateSeedFromWordList(wordList);
+      List<String> wordList = Arrays.asList(mnemonic.split(" "));
+      Bip39.MasterSeed masterSeed = Bip39.generateSeedFromWordList(wordList, null);
       byte[] seedBytes = masterSeed.getBip32Seed();
 
       promise.resolve(byteArrayToWritable(seedBytes));

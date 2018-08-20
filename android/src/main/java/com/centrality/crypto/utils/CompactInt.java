@@ -69,7 +69,7 @@ public class CompactInt {
       return value;
    }
 
-   public static long fromByteReader(ByteReader reader) {
+   public static long fromByteReader(ByteReader reader) throws ByteReader.InsufficientBytesException {
       long first = 0x00000000000000FFL & ((long) reader.get());
       long value;
       if (first < 253) {
