@@ -2051,5 +2051,4 @@ public class WordList {
         "zero",
         "zone",
         "zoo"
-  }
-}
+  };
