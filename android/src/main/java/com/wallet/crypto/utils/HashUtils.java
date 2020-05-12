@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.utils;
+package com.wallet.crypto.utils;
 
-import com.centrality.crypto.digest.RIPEMD160Digest;
-import com.centrality.crypto.utils.Sha256Hash;
-import com.centrality.crypto.utils.Sha512Hash;
+import com.wallet.crypto.digest.RIPEMD160Digest;
+import com.wallet.crypto.utils.Sha256Hash;
+import com.wallet.crypto.utils.Sha512Hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

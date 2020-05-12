@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.utils;
+package com.wallet.crypto.utils;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import com.centrality.crypto.utils.BitUtils;
-import com.centrality.crypto.utils.ByteReader;
+import com.wallet.crypto.utils.BitUtils;
+import com.wallet.crypto.utils.ByteReader;
 
 /**
  * Used for representing Bitcoin's compact size integers as described [here](https://bitcoin.org/en/developer-reference#compactsize-unsigned-integers)

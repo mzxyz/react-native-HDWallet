@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.digest;
+package com.wallet.crypto.digest;
 
 /**
  * base implementation of MD4 family style digest as outlined in

@@ -1,7 +1,7 @@
 
-package com.centrality.crypto.hdWallet;
+package com.wallet.crypto.hdWallet;
 
-import com.centrality.crypto.bip39.Bip39;
+import com.wallet.crypto.bip39.Bip39;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;

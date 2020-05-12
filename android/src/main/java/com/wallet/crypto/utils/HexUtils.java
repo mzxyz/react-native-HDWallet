@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.utils;
+package com.wallet.crypto.utils;
 
 /**
  * Utilities for going to and from ASCII-HEX representation.

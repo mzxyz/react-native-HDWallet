@@ -1,4 +1,4 @@
-package com.centrality.crypto.bip39;
+package com.wallet.crypto.bip39;
 
 public class WordList {
   // TODO: maybe support multi languages in the future

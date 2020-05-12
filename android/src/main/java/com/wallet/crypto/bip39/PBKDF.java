@@ -1,4 +1,4 @@
-package com.centrality.crypto.bip39;
+package com.wallet.crypto.bip39;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

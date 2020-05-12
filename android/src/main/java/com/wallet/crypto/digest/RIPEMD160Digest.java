@@ -19,7 +19,7 @@
  * www.bouncycastle.org. The code has been formatted to comply with
  * the rest of the formatting in this library.
  */
-package com.centrality.crypto.digest;
+package com.wallet.crypto.digest;
 
 /**
  * implementation of RIPEMD see,

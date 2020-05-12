@@ -1,5 +1,5 @@
 
-package com.centrality.crypto.hdWallet;
+package com.wallet.crypto.hdWallet;
 
 import java.util.Arrays;
 import java.util.Collections;

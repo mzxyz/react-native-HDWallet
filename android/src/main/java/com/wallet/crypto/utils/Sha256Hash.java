@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.utils;
+package com.wallet.crypto.utils;
 
-import com.centrality.crypto.utils.BitUtils;
-import com.centrality.crypto.utils.HexUtils;
+import com.wallet.crypto.utils.BitUtils;
+import com.wallet.crypto.utils.HexUtils;
 
 import java.io.Serializable;
 import java.math.BigInteger;

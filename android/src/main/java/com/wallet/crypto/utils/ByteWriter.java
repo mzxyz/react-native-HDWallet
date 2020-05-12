@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.centrality.crypto.utils;
+package com.wallet.crypto.utils;
 
-import com.centrality.crypto.utils.CompactInt;
-import com.centrality.crypto.utils.Sha256Hash;
-import com.centrality.crypto.utils.BitUtils;
+import com.wallet.crypto.utils.CompactInt;
+import com.wallet.crypto.utils.Sha256Hash;
+import com.wallet.crypto.utils.BitUtils;
 
 import java.io.UnsupportedEncodingException;
 

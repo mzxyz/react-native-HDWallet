@@ -1,31 +1,22 @@
 
-# centrality-mobile-hdwallet
+# react-native-HDWallet
+
+HDWallet supports Bip39 / Bip44 protocol on React-Native
 
 ## Getting started
 
-`$ npm install centrality-mobile-hdwallet --save`
+`$ npm install react-native-HDWallet --save`
 
 ### Mostly automatic installation
 
-`$ react-native link centrality-mobile-hdwallet`
-
-## TODO List
-
-1. ~~Support Bip39 on iOS. ~~ [`Finished`]
-2. ~~Bip39 test on iOS. ~~ [`Finished`]
-3. ~~Support Bip39 on android. ~~ [`Finished`]
-4. ~~Bip39 test on android. ~~ [`Finished`]
-5. Support Bip32/Bip44 on iOS.
-6. Support Bip32/Bip44 on android.
-
+`$ react-native link react-native-HDWallet`
 
 ### Manual installation
-
 
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `centrality-mobile-hdwallet` and add `RNHDWallet.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-HDWallet` and add `RNHDWallet.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNHDWallet.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -36,17 +27,17 @@
   - Add `new RNHDWalletPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':centrality-mobile-hdwallet'
-  	project(':centrality-mobile-hdwallet').projectDir = new File(rootProject.projectDir, 	'../node_modules/centrality-mobile-hdwallet/android')
+  	include ':react-native-HDWallet'
+  	project(':react-native-HDWallet').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-HDWallet/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':centrality-mobile-hdwallet')
+      compile project(':react-native-HDWallet')
   	```
 
 ## Usage
 ```javascript
-import * as HDWallet from 'centrality-mobile-hdwallet';
+import * as HDWallet from 'react-native-HDWallet';
 
 // bip39 online: https://iancoleman.io/bip39/
 

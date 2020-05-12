@@ -3,7 +3,7 @@
 //  RNNacl
 //
 //  Created by Michael Zhai on 25/07/18.
-//  Copyright © 2018 Centrality. All rights reserved.
+//  Copyright © 2018 wallet. All rights reserved.
 //
 
 #import "NSData+Buffer.h"

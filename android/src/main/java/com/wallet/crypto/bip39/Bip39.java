@@ -1,11 +1,11 @@
-package com.centrality.crypto.bip39;
+package com.wallet.crypto.bip39;
 
-import com.centrality.crypto.bip39.WordList;
-import com.centrality.crypto.bip39.PBKDF;
-import com.centrality.crypto.utils.ByteReader;
-import com.centrality.crypto.utils.ByteWriter;
-import com.centrality.crypto.utils.HashUtils;
-import com.centrality.crypto.utils.BitUtils;
+import com.wallet.crypto.bip39.WordList;
+import com.wallet.crypto.bip39.PBKDF;
+import com.wallet.crypto.utils.ByteReader;
+import com.wallet.crypto.utils.ByteWriter;
+import com.wallet.crypto.utils.HashUtils;
+import com.wallet.crypto.utils.BitUtils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
